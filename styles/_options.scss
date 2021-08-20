@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --default-font-size: 16;
+    --family1: 'Merriweather', serif;
+    --family2: 'Poppins', sans-serif;
+    --family3: 'Libre Franklin', sans-serif;
+    --nav-bar-text-color: #b2b2b2;
+    --color1: #2978D3;
+    --color2: #000;
+    --color3: #348ff7;
+    --text-color-1: #4d4d4d;
+    --shadow1: 0px 2px 12px 0px rgb(136 136 136 / 50%);
+}
+/**
+ *to provide a dynamic font size
+ *this fonction make font size responsize by providing proportional value to the :root variable '--default-font-size'
+ */
+@function size($size){
+    @return calc((#{$size} / var(--default-font-size)) * 1rem);
+}
+%width-content{
+    width: 100%;
+    padding-left: calc(( 100% - 1000px) / 2);
+    padding-right: calc(( 100% - 1000px) / 2);
+
+    @media all and (max-width: 1000px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+}
+
+body{
+    font-size: calc(var(--default-font-size) * 1px);
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    //font-family: 'Fjalla One', sans-serif;
+}
+
+a, li{
+    text-decoration: none;
+    list-style-type: none;
+    color: inherit;
+}
+.mb1{
+    color: var(--color2);
+    font-size: size(50);
+    font-family: var(--family1);
+    font-weight: lighter;
+}
+.mb2{
+    color: var(--color2);
+    font-size: size(30);
+    font-family: var(--family1);
+    font-weight: lighter;
+}
+.mb3{
+    color: var(--color2);
+    font-size: size(20);
+    font-family: var(--family1);
+    font-weight: normal;
+}
+.mb4{
+    color: var(--text-color-1);
+    font-size: size(16);
+    font-family: var(--family1);
+    line-height: 30px;
+}
+.btn-primary{
+    height: 55px;
+    background: var(--color1);
+    font-family: var(--family1);
+    color: #fff;
+    border: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: 2px solid transparent;
+    transition: all ease-in-out .3s;
+
+    &:focus ,&:hover{
+        border-color: #6cb0ff;
+        background: var(--color3);
+    }
+}

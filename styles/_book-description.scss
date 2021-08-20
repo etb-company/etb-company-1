@@ -1,0 +1,29 @@
+#book-description{
+    @extend %width-content;
+    background: url('../public/img/background-description.jpg') top right;
+    background-size: cover;
+
+    display: flex;
+    justify-content: space-between;
+
+    &>article:first-child{
+        padding-top: 60px;
+        padding-bottom: 60px;
+        max-width: 70%;
+
+        p{
+            margin-top: 20px;
+            text-indent: 50px;
+        }
+    }
+    @media (max-width: 700px){
+        &>article:first-child{
+            max-width: 100%;
+
+            p, h2{
+                text-align: center;
+                text-indent: 0;
+            }
+        }
+    }
+}

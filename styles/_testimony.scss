@@ -1,0 +1,37 @@
+#testimony{
+    @extend %width-content;
+    background: url(../public/background-description.jpg) top right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    .carou-elt{
+        background: #fff;
+        max-width: 300px;
+        height: 370px;
+        border-radius: 20px;
+        border: 2px solid transparent;
+        padding: 10px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        transition: all ease-in-out .3s;
+        transform: scale(0.94);
+
+        p{
+            text-align: center;
+        }
+        &:hover{
+            border-color: var(--color1);
+            transform: scale(0.98);
+            box-shadow: var(--shadow1);
+        }
+    }
+    &>h2{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
