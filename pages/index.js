@@ -1,82 +1,31 @@
 import NavBar from "../components/NavBar"
 import Image from 'next/image'
+import Link from "next/link"
+import Head from "next/head"
+import BtnSouscription from "../components/BtnSouscription"
 import { useEffect } from "react"
 import Slider from "react-slick"
+import Footer from "../components/Footer"
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import ChapterPresent from "../components/ChapterPresent"
 
-const SkillOption = ({children, title, image}) =>{
-  return <article>
+const SkillOption = ({children, title, image, className}) =>{
+  return <article className={className}>
     <Image src={image} width={70} height={70} alt={title}/>
     <h3 className="mb3">{title}</h3>
     <p className="mb4">{children}</p>
   </article>
 }
-const ChapterPresent = ({data}) => {
-
-  useEffect(() => {
-    const divs = document.querySelectorAll('.chapter-div')
-    divs.forEach(div => {
-      div.addEventListener('click', function(e){
-        if(div.classList.contains('expand-div')){
-          document.querySelectorAll('.expand-div').forEach(el => {
-            el.classList.remove('expand-div')
-          })
-        }else{
-          document.querySelectorAll('.expand-div').forEach(el => {
-            el.classList.remove('expand-div')
-          })
-          this.classList.add('expand-div')
-        }
-      })
-    })
-  }, [])
-  
-  const chap = []
-  data.forEach((elt, k) => {
-    let p = <div key={k} className="chapter-div">
-      <div className="chapter-div-top">
-        <span></span>
-        <h4 className="mb4">{elt.title}</h4>
-      </div>
-      <p className="mb4">{elt.content}</p>
-    </div>
-    chap.push(p)
-  })
-
-  return chap
-}
 const CarouElt = ({children, name, img}) => {
   return <div className="carou-elt">
-    <Image src={img} width={100} height={100} alt={name} className="img-carou"/>
+    <div className="test-img-cont"><Image src={img} width={100} height={100} alt={name} className="img-carou"/></div>
     <p className="mb4">{children}</p>
     <h4 className="mb4">{name}</h4>
   </div>
 }
 
 export default function Home() {
-  const chapterData = [
-    {
-      title: 'Chapitre 1',
-      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ex earum aliquam vero asperiores consequuntur hic delectus expedita itaque animi.'
-    },
-    {
-      title: 'Chapitre 2',
-      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ex earum aliquam vero asperiores consequuntur hic delectus expedita itaque animi.'
-    },
-    {
-      title: 'Chapitre 3',
-      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ex earum aliquam vero asperiores consequuntur hic delectus expedita itaque animi.'
-    },
-    {
-      title: 'Chapitre 4',
-      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ex earum aliquam vero asperiores consequuntur hic delectus expedita itaque animi.'
-    },
-    {
-      title: 'Chapitre 5',
-      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ex earum aliquam vero asperiores consequuntur hic delectus expedita itaque animi.'
-    }
-  ]
   const settings = {
     accessibility: true,
     arrows: false,
@@ -109,52 +58,54 @@ export default function Home() {
     ]
   }
   
-  return <main>
+  return <>
+  <Head>
+      <title>ETB | Accueil</title>
+  </Head>
+  <main>
     <header id="header">
       <NavBar/>
       <article className="header-text">
-        <h1 className="mb1">Etude en Belgique <br/>Guide complet</h1>
-        <p className="mb4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex quos temporibus explicabo quidem accusamus autem, temporibus explicabo quidem accusamus autem</p>
-        <button className="btn-primary">SOUSCRIRE</button>
+        <h1 className="mb1 reveal-top-1">Etude en Belgique <br/>Guide complet</h1>
+        <p className="mb4 reveal-top-2">Vous souhaitez obtenir facilement votre visa d’étude pour la Belgique mais vous n’avez aucune connaissance sur la procédure à suivre pour réussir votre entretien ainsi que constituer vos dossiers, alors ce livre est fait pour vous.</p>
+        <BtnSouscription className="reveal-top-3">SOUSCRIRE</BtnSouscription>
       </article>
     </header>
     <section id="skill">
       <div className="skill-top">
-        <h2 className="mb2">Tout ce que vous devez savoir dans un seul livre</h2>
-        <p className="mb4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique rerum mollitia aperiam in iusto odio nam minus molestias soluta! Dignissimos doloribus, rem totam blanditiis</p>
+        <h2 className="mb2 reveal-top-0">Tout ce que vous devez savoir dans un seul livre</h2>
+        <p className="mb4 reveal-top-1">Le guide complet de A à Z pour l’immigration en Belgique </p>
       </div>
       <div className="skill-options">
-        <SkillOption title="Fiabilité" image="/img/efficacity.svg">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati dolore</SkillOption>
-        <SkillOption title="Efficacité" image="/img/efficacity.svg">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati dolore</SkillOption>
-        <SkillOption title="Rapidité" image="/img/efficacity.svg">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati dolore</SkillOption>
+        <SkillOption title="Fiabilité" image="/img/efficacity.svg">Des méthodes sûres et légales. Votre sécurité est notre première priorité   </SkillOption>
+        <SkillOption title="Efficacité" image="/img/efficacity.svg">Toutes les informations et astuces importantes à connaitre sur l’immigration</SkillOption>
+        <SkillOption title="Rapidité" image="/img/efficacity.svg">Des méthodes testées et approuvées pour une rapidité garantie </SkillOption>
       </div>
     </section>
     <section id="book-description">
       <article>
-        <h2 className="mb2">Description du livre</h2>
-        <p className="mb4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam voluptate perferendis sequi quod consequuntur fugiat cupiditate numquam voluptates autem totam consectetur reprehenderit harum hic quaerat expedita odit placeat laudantium enim repellendus quibusdam, minus vitae voluptatum dolores! Perferendis inventore dicta quisquam ullam placeat quos. Aliquam nesciunt modi nam qui quos, totam dicta illo voluptates? Neque sequi error animi. Maxime cum eos doloribus delectus. Placeat odit animi fugit aut aliquid dignissimos nam!</p>
+        <h2 className="mb2 reveal-right-0">Description du livre</h2>
+        <p className="mb4 reveal-right-1">Ce livre est divisé en 5 chapitres disponibles individuellement à l’achat. Ces 5 chapitres à savoir « L’équivalence », « « L’admission », « La prise en charge », « Campus Belgique » et « Demande de Visa » sont destinées à vous donner toutes les informations nécessaires à connaitre pour l’immigration en Belgique. Toutes les procédures telles que l’obtention du visa sont détaillées avec le plus grand soin dans ce livre.</p>
       </article>
     </section>
     <section id="chapter-details">
-      <img src="/img/book.png" alt="book" />
+      <img src="/img/book.png" alt="book" className="reveal-left-0"/>
       <div className="chapter-details-container">
-        <ChapterPresent data={chapterData}/>
+        <ChapterPresent/>
       </div>
     </section>
     <section id="testimony">
       <h2 className="mb2">Témoignages</h2>
       <div className="owl-carousel">
         <Slider {...settings}>
-          <CarouElt img="/img/t1.png" name="Paul">1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptate incidunt nesciunt necessitatibus dolore architecto.</CarouElt>
-          <CarouElt img="/img/t1.png" name="Paul">2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptate incidunt nesciunt necessitatibus dolore architecto.</CarouElt>
-          <CarouElt img="/img/t1.png" name="Paul">3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptate incidunt nesciunt necessitatibus dolore architecto.</CarouElt>
-          <CarouElt img="/img/t1.png" name="Paul">4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptate incidunt nesciunt necessitatibus dolore architecto.</CarouElt>
-          <CarouElt img="/img/t1.png" name="Paul">5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptate incidunt nesciunt necessitatibus dolore architecto.</CarouElt>
+          <CarouElt img="/img/t1.png" name="Julien Obingo">Grace à ETB-Company J’ai pu obtenir un visa étudiant pour la haute école Bruxelles-Brabant où je fréquente depuis 2 ans.</CarouElt>
+          <CarouElt img="/img/t2.png" name="Thea Navelie">Apres mon baccalauréat le guide complet de ETB-Company m’a permis de constituer personnellement mes dossiers pour la Belgique. </CarouElt>
+          <CarouElt img="/img/t3.png" name="Justin Yongoa">Avec ma licence professionnelle en réseau, ETB-Company m’a facilité l’obtention d’un travail en plein temps en Belgique </CarouElt>
+          <CarouElt img="/img/t4.png" name="Aristide Kenfack">Apres l’obtention de mon Master 2 en biochimie à l’université de Yaoundé 1, ETB-Company m’a guidé dans le processus d’inscription en thèse en Belgique.</CarouElt>
         </Slider>
       </div>
     </section>
-    <footer id="footer">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptate hic recusandae tenetur eligendi animi, labore iste velit vero maiores dicta expedita distinctio magnam harum accusamus, culpa nihil odit optio soluta minima a at adipisci rerum corrupti! Fuga, asperiores possimus. Quod illo repellat modi voluptatum atque, aliquam dolorem eius similique consequuntur amet minima nisi. Repellendus ad sint minus voluptatem, vero asperiores aspernatur saepe? Sequi labore voluptatum ut, possimus odit reiciendis, similique voluptatem exercitationem accusantium enim adipisci praesentium nostrum, mollitia ea eum doloribus quo ab quaerat ipsa at quidem porro numquam inventore iusto. Est et animi laborum rerum eligendi quasi iusto doloribus quos numquam dolorem consequatur neque ab eveniet quis at molestiae, veniam assumenda sed sequi? Veritatis, eveniet reiciendis. Minima sequi nisi fuga praesentium sit, cupiditate quasi doloribus facere maxime et aut, hic quas nam, ea distinctio maiores voluptatibus! Repudiandae error porro sapiente accusantium alias excepturi natus, sed repellendus, mollitia, inventore consectetur! Voluptas adipisci similique iusto provident minima dolorem accusantium, vel ut. Perferendis non vero exercitationem expedita voluptatem quae accusantium pariatur laudantium mollitia quis, blanditiis minus explicabo asperiores laborum eum! Fuga qui quaerat neque unde, aut quis omnis possimus sit perspiciatis ad. Veritatis quae nisi cum et illum nesciunt culpa aperiam!
-    </footer>
+    <Footer/>
   </main>
+  </>
 }
