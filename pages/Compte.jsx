@@ -197,7 +197,7 @@ const UserInfo = ({bookD, userDatas}) => {
 
     return <section id="user-info">
         <article className="user-description">
-            <Image src="/img/user.png" width={200} height={200}/>
+            <Image src="/img/user.png" width={200} height={200} alt="user"/>
             <div>
                 <p>Nom: {userDatas? userDatas.name: 'User'}</p>
                 <p>Prenom: {userDatas? userDatas.firstName: 'User'}</p>
@@ -206,7 +206,7 @@ const UserInfo = ({bookD, userDatas}) => {
                     <BtnConfirmation type="succes" text={LOGOUT_TEXT} onHandleClick={submitLogout}>Se déconnecter</BtnConfirmation>
                     <BtnConfirmation type="alert" text={SUPP_TEXT} onHandleClick={deleteUserAccount}>Supprimer le compte</BtnConfirmation>
                 </div>
-                <h4 className="mb4">Avez-vous déjà un code d'achat ?</h4>
+                <h4 className="mb4">Avez-vous déjà un code d`achat ?</h4>
                 <CodeValidator/>
             </div>
         </article>
@@ -215,7 +215,7 @@ const UserInfo = ({bookD, userDatas}) => {
                 <h2 className="mb2">Espace achat</h2>
                 <div>
                     <div className="schop-book-detail">
-                        <Image src={'/img/book.png'} width={300} height={312}/>
+                        <Image src={'/img/book.png'} width={300} height={312} alt="book"/>
                         <div>
                             <h4>{price.rPrice !== price.price?(<span>{price.rPrice} €</span>): <br/>}</h4>
                             <h2>{price.price} €</h2>
@@ -422,7 +422,7 @@ const ConnectMenu = () => {
 
     return <section className="connexion-menu">
         <article className="white-background">
-            <h3 className="mb3">Vous n'êtes pas connecté</h3>
+            <h3 className="mb3">Vous n`êtes pas connecté</h3>
             <StepCours data={stepData}/>
             <div>
                 <h4 className="mb4">Veuillez vous connecter</h4>
@@ -499,7 +499,7 @@ const ConnectMenu = () => {
                         <input type="text" id="city-ins" className="input-primary" onChange={handleForm} value={formData.city} placeholder="Paris"/>
                     </div>
                     <div>
-                        <button className="btn-primary" type="submit">S'inscrire</button>
+                        <button className="btn-primary" type="submit">S`inscrire</button>
                         {loader === 'ins'? <Loader/>: ''}
                     </div>
                 </div>
