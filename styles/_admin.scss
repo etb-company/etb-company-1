@@ -1,0 +1,147 @@
+
+#admin-container{
+    @extend %width-content;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.users-details-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+/*USer card*/
+.user-card{
+    margin: 10px;
+    background: #fff;
+    width: 300px;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: var(--shadow1);
+
+    .shop-details{
+        margin-top: 10px;
+        border-top: 2px solid rgb(190, 190, 190);
+    }
+    .shop-details span{
+        display: inline-block;
+        padding: 5px;
+        border-radius: 5px;
+        margin: 5px;
+        color: #505050;
+        background: var(--color3);
+    }
+    .upgrade-chop{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 2px solid rgb(190, 190, 190);
+    }
+    .upgrade-chop>div{
+        input{
+            display: none;
+        }
+        label span{
+            position: relative;
+
+            &::before, &::after{
+                content: '';
+                display: inline-block;
+                border-radius: 50%;
+                background: var(--color1);
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                left: calc(100% + 5px);
+            }
+            &::after{
+                width: 14px;
+                height: 14px;
+                background: var(--fade-white);
+                border: 3px solid #fff;
+                left: calc(100% + 8px);
+                top: 2px;
+                transition: all ease-in-out .3s;
+            }
+        }
+        input:checked ~ label span{
+            &::after{
+                background: var(--color1);
+                border: 2px solid #fff;
+            }
+        }
+        input:hover ~ label span{
+            &::after{
+                background: var(--color1);
+            }
+        }
+    }
+    .user-code{
+        margin-top: 10px;
+    }
+    .user-code>div:first-child{
+        display: grid;
+        grid-template-columns: 1fr 50px;
+        grid-template-rows: 50px;
+        margin-bottom: 10px;
+
+        span{
+            width: 100%;
+            height: 100%;
+        }
+        span:first-child{
+            border: 2px solid rgb(160, 160, 160);
+            color: #363636;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-right-color: transparent;
+            overflow: hidden;
+            padding-left: 5px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            transform: translateX(2px);
+        }
+        span:nth-child(2){
+            background: #ffa604;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all ease-in-out .3s;
+
+            &:hover{
+                background: #fcb83b;
+            }
+        }
+    }
+
+    @media (max-width: 300px){
+        width: 100%;
+    }
+}
+/*USer card*/
+
+
+/*****ADMIN_CONNEXION*****/
+
+#Admin-connection{
+    
+    form{
+        margin: 0 auto;
+        max-width: 500px;
+    }
+    form>input{
+        margin-bottom: 10px;
+    }
+}
+
+/*****ADMIN_CONNEXION*****/
+
+.admin-log{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}

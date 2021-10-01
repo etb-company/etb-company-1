@@ -1,0 +1,47 @@
+#skill{
+    @extend %width-content;
+    --padding: 80px;
+    padding-top: var(--padding);
+    padding-bottom: var(--padding);
+
+    .skill-top{
+        padding-bottom: 30px;
+        h2{
+            margin-bottom: 20px;
+        }
+    }
+    .skill-options{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        article{
+            max-width: 280px;
+            transition: all ease-in-out .2s;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            padding: 30px 5px;
+
+            h3{
+                margin-top: 20px;
+                margin-bottom: 15px;
+            }
+        }
+        article:hover{
+            border-color: var(--color1);
+            transform: scale(1.05);
+            box-shadow: var(--shadow1);
+        }
+    }
+
+    &>div:first-child, .skill-options>article{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    @media (max-width: 600px){
+        --padding: 50px;
+    }
+}

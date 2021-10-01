@@ -1,0 +1,62 @@
+#step-cours{
+    width: 100%;
+    padding: 10px 0;
+
+    .step-complited, .step-uncomplited{
+        width: 35px;
+        height: 35px;
+        display: inline-block;
+        border-radius: 50%;
+        background: var(--color1);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+    }
+    .step-complited{
+        position: relative;
+
+        &::after, &::before{
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 2px;
+            background: #fff;
+            position: absolute;
+            left: 10px;
+            transform-origin: left;
+            transform: rotateZ(45deg);
+        }
+        &::after{
+            width: 18px;
+            transform-origin: right;
+            transform: rotateZ(-60deg);
+            top: 8px;
+            left: 7px;
+        }
+    }
+    &>div{
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        position: relative;
+
+        &>span:nth-child(2){
+            margin-left: 10px;
+            max-width: 80%;
+        }
+    }
+    &>div:nth-child(n + 2){
+        &::before{
+            content: '';
+            display: block;
+            background: var(--color1);
+            width: 5px;
+            height: 130%;
+            position: absolute;
+            bottom: 20px;
+            left: 15px;
+        }
+    }
+}
